@@ -52,7 +52,7 @@ def fit(dataloaders, model, target_model,optimizer, criterion, metrics, patience
     patience_c =0    
     for epoch in range(epochs):
       TrainEpoch(dataloaders, model, target_model, optimizer, criterion, metrics, device, gamma)
-      if (epoch+1) % 2 == 0:
+      if (epoch) % 2 == 0:
         print(f'Epoch {epoch} Val Metrics: ')
         trial_MSE = ValEpoch(dataloaders, model, target_model, optimizer, criterion, metrics, device, gamma)
         if trial_MSE < MSE:

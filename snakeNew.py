@@ -237,19 +237,19 @@ if __name__ == "__main__":
     
     Qmodel = SnakeModel()
     targetModel = SnakeModel(); targetModel.load_state_dict(Qmodel.state_dict())
-    cycles = 2000
+    cycles = 5000
     epsilon = 0.99
-    epsilon_reduction = 0.995
-    plays_per_train = 200    
-    show_every_n = 2000
+    epsilon_reduction = 0.997
+    plays_per_train = 300    
+    show_every_n = 3000
     cycles_per_show = show_every_n / plays_per_train
-    record_0_score_every_n = 100
-    record_0_score_every_n_reduction = 1.02
+    record_0_score_every_n = 2000
+    record_0_score_every_n_reduction = .999
     for cycle in range(cycles):
         cycle_score, positive_cycle_score = 0,0
         Metrics = {} #create blank metrics every time.
         for play in range(plays_per_train):
-            #we need to show the game every 100,000 runs
+
             gui = False
 
             if (cycle % cycles_per_show ==0) and play == 0:
@@ -259,7 +259,7 @@ if __name__ == "__main__":
             game.start()
             if gui: game.render()
             done = False
-            for i in range(150):
+            for i in range(40):
                 
                 done = game.step()
                 
@@ -273,11 +273,12 @@ if __name__ == "__main__":
             if gui: 
                 
                 curses.endwin()
-                print(f'played a game on cycle:{cycle}, play {play}\n, epsilon: {epsilon}')
+                print(f'played a game on cycle:{cycle}, play {play}\n, epsilon: {epsilon}',end='\n')
         #reduce epsilon and show every n every cycle
         print(f'End of cycle score: {cycle_score}\nEnd of cycle positive score: {positive_cycle_score}\n')
         epsilon = epsilon * epsilon_reduction
-        record_0_score_every_n = record_0_score_every_n // record_0_score_every_n_reduction + 1
+        record_0_score_every_n = max(int(record_0_score_every_n * record_0_score_every_n_reduction),1)
+        print(record_0_score_every_n)
 #############################################################################
 #
 
@@ -285,10 +286,10 @@ if __name__ == "__main__":
         batch_size = 50
         sample_percentage = 0.5
         patience = 1
-        epochs = 2
-        gamma = 0.95
+        epochs = 1
+        gamma = 0.98
         device = 'cpu' #obsolete reference because i deleted all references to device
-        update_target_every_n = 10
+        update_target_every_n = 5
 
         '''Create the model, inputs etc'''
         #create the inputs
@@ -312,10 +313,18 @@ if __name__ == "__main__":
         fit(dataloaders, Qmodel, targetModel, optim, criterion, metrics, patience, epochs, device, gamma)
         if (cycle+1) % update_target_every_n  == 0:
             targetModel.load_state_dict(Qmodel.state_dict())
-            print(f'loaded target model on cycle {cycle+1}\ncheck: length of dataset is {len(dataset["train"])}\ncheck: epsilon is now {epsilon}check: record_0_score is now {record_0_score_every_n}\n')
+            print(f'loaded target model on cycle {cycle+1}\ncheck: length of dataset is {len(dataset["train"])}\ncheck: epsilon is now {epsilon}')
+            print(f'check: record_0_score is now {record_0_score_every_n}\n')
         
             
         time.sleep(5)
+import pickle
+model_save_name = 'MAINSnakemodel.pt'
+path = f"/users/jacoblourie/RNN_games/Snake/{model_save_name}"
+torch.save(Qmodel, path)
+model_save_name = 'TARGETSnakemodel.pt'
+path = f"/users/jacoblourie/RNN_games/Snake/{model_save_name}"
+torch.save(targetModel, path)
 #close the screen
 # if gui: 
 #     curses.endwin()
