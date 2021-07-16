@@ -1,0 +1,577 @@
+{
+   "0": {
+      "epsilon": 0.3,
+      "cycle_score": 1885,
+      "positive_cycle_score": 3488,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 47530
+   },
+   "1": {
+      "epsilon": 0.2998,
+      "cycle_score": 2162,
+      "positive_cycle_score": 3414,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 47796
+   },
+   "2": {
+      "epsilon": 0.29960000000000003,
+      "cycle_score": 2389,
+      "positive_cycle_score": 3668,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 51385
+   },
+   "3": {
+      "epsilon": 0.29940000000000005,
+      "cycle_score": 2464,
+      "positive_cycle_score": 3528,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 49265
+   },
+   "4": {
+      "epsilon": 0.2992000000000001,
+      "cycle_score": 2844,
+      "positive_cycle_score": 3776,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 53748
+   },
+   "5": {
+      "epsilon": 0.2990000000000001,
+      "cycle_score": 2123,
+      "positive_cycle_score": 3845,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 52504
+   },
+   "6": {
+      "epsilon": 0.2988000000000001,
+      "cycle_score": 2193,
+      "positive_cycle_score": 3433,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 48586
+   },
+   "7": {
+      "epsilon": 0.29860000000000014,
+      "cycle_score": 1989,
+      "positive_cycle_score": 3693,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 50259
+   },
+   "8": {
+      "epsilon": 0.29840000000000017,
+      "cycle_score": 1904,
+      "positive_cycle_score": 3658,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 49796
+   },
+   "9": {
+      "epsilon": 0.2982000000000002,
+      "cycle_score": 3473,
+      "positive_cycle_score": 4341,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 61834
+   },
+   "10": {
+      "epsilon": 0.2980000000000002,
+      "cycle_score": 2269,
+      "positive_cycle_score": 4289,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 57074
+   },
+   "11": {
+      "epsilon": 0.29780000000000023,
+      "cycle_score": 3582,
+      "positive_cycle_score": 4549,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 64374
+   },
+   "12": {
+      "epsilon": 0.29760000000000025,
+      "cycle_score": 2535,
+      "positive_cycle_score": 4345,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 58840
+   },
+   "13": {
+      "epsilon": 0.2974000000000003,
+      "cycle_score": 2311,
+      "positive_cycle_score": 4200,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 56816
+   },
+   "14": {
+      "epsilon": 0.2972000000000003,
+      "cycle_score": 2171,
+      "positive_cycle_score": 4285,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 57337
+   },
+   "15": {
+      "epsilon": 0.2970000000000003,
+      "cycle_score": 2757,
+      "positive_cycle_score": 4428,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 61207
+   },
+   "16": {
+      "epsilon": 0.29680000000000034,
+      "cycle_score": 1886,
+      "positive_cycle_score": 3756,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 51172
+   },
+   "17": {
+      "epsilon": 0.29660000000000036,
+      "cycle_score": 2816,
+      "positive_cycle_score": 4483,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 61466
+   },
+   "18": {
+      "epsilon": 0.2964000000000004,
+      "cycle_score": 2655,
+      "positive_cycle_score": 4398,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 60014
+   },
+   "19": {
+      "epsilon": 0.2962000000000004,
+      "cycle_score": 2887,
+      "positive_cycle_score": 4358,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 59319
+   },
+   "20": {
+      "epsilon": 0.29600000000000043,
+      "cycle_score": 2701,
+      "positive_cycle_score": 4243,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 58460
+   },
+   "21": {
+      "epsilon": 0.29580000000000045,
+      "cycle_score": 2747,
+      "positive_cycle_score": 4714,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 63472
+   },
+   "22": {
+      "epsilon": 0.2956000000000005,
+      "cycle_score": 3315,
+      "positive_cycle_score": 5161,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 69890
+   },
+   "23": {
+      "epsilon": 0.2954000000000005,
+      "cycle_score": 3783,
+      "positive_cycle_score": 4991,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 68530
+   },
+   "24": {
+      "epsilon": 0.2952000000000005,
+      "cycle_score": 4290,
+      "positive_cycle_score": 5149,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 72596
+   },
+   "25": {
+      "epsilon": 0.29500000000000054,
+      "cycle_score": 1790,
+      "positive_cycle_score": 3694,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 50464
+   },
+   "26": {
+      "epsilon": 0.29480000000000056,
+      "cycle_score": 2877,
+      "positive_cycle_score": 4430,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 61736
+   },
+   "27": {
+      "epsilon": 0.2946000000000006,
+      "cycle_score": 3890,
+      "positive_cycle_score": 5340,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 71903
+   },
+   "28": {
+      "epsilon": 0.2944000000000006,
+      "cycle_score": 2610,
+      "positive_cycle_score": 4383,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 59994
+   },
+   "29": {
+      "epsilon": 0.2942000000000006,
+      "cycle_score": 3386,
+      "positive_cycle_score": 4304,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 61145
+   },
+   "30": {
+      "epsilon": 0.29400000000000065,
+      "cycle_score": 4752,
+      "positive_cycle_score": 5653,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 79496
+   },
+   "31": {
+      "epsilon": 0.29380000000000067,
+      "cycle_score": 3969,
+      "positive_cycle_score": 5380,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 74073
+   },
+   "32": {
+      "epsilon": 0.2936000000000007,
+      "cycle_score": 3274,
+      "positive_cycle_score": 4726,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 64851
+   },
+   "33": {
+      "epsilon": 0.2934000000000007,
+      "cycle_score": 3813,
+      "positive_cycle_score": 4794,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 66158
+   },
+   "34": {
+      "epsilon": 0.29320000000000074,
+      "cycle_score": 4120,
+      "positive_cycle_score": 5286,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 73114
+   },
+   "35": {
+      "epsilon": 0.29300000000000076,
+      "cycle_score": 4355,
+      "positive_cycle_score": 5222,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 74443
+   },
+   "36": {
+      "epsilon": 0.2928000000000008,
+      "cycle_score": 4505,
+      "positive_cycle_score": 5286,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 75379
+   },
+   "37": {
+      "epsilon": 0.2926000000000008,
+      "cycle_score": 4268,
+      "positive_cycle_score": 5535,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 75444
+   },
+   "38": {
+      "epsilon": 0.2924000000000008,
+      "cycle_score": 3946,
+      "positive_cycle_score": 5255,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 71737
+   },
+   "39": {
+      "epsilon": 0.29220000000000085,
+      "cycle_score": 4007,
+      "positive_cycle_score": 4572,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 65478
+   },
+   "40": {
+      "epsilon": 0.29200000000000087,
+      "cycle_score": 3684,
+      "positive_cycle_score": 5077,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 69539
+   },
+   "41": {
+      "epsilon": 0.2918000000000009,
+      "cycle_score": 4533,
+      "positive_cycle_score": 5068,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 71918
+   },
+   "42": {
+      "epsilon": 0.2916000000000009,
+      "cycle_score": 4513,
+      "positive_cycle_score": 5512,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 76069
+   },
+   "43": {
+      "epsilon": 0.29140000000000094,
+      "cycle_score": 3971,
+      "positive_cycle_score": 5081,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 69881
+   },
+   "44": {
+      "epsilon": 0.29120000000000096,
+      "cycle_score": 3523,
+      "positive_cycle_score": 4909,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 67098
+   },
+   "45": {
+      "epsilon": 0.291000000000001,
+      "cycle_score": 3683,
+      "positive_cycle_score": 5005,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 68627
+   },
+   "46": {
+      "epsilon": 0.290800000000001,
+      "cycle_score": 4906,
+      "positive_cycle_score": 5897,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 80967
+   },
+   "47": {
+      "epsilon": 0.290600000000001,
+      "cycle_score": 3345,
+      "positive_cycle_score": 3982,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 57606
+   },
+   "48": {
+      "epsilon": 0.29040000000000105,
+      "cycle_score": 4460,
+      "positive_cycle_score": 5300,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 74774
+   },
+   "49": {
+      "epsilon": 0.29020000000000107,
+      "cycle_score": 4911,
+      "positive_cycle_score": 5477,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 77940
+   },
+   "50": {
+      "epsilon": 0.2900000000000011,
+      "cycle_score": 4761,
+      "positive_cycle_score": 5636,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 80787
+   },
+   "51": {
+      "epsilon": 0.2898000000000011,
+      "cycle_score": 5217,
+      "positive_cycle_score": 5783,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 82229
+   },
+   "52": {
+      "epsilon": 0.28960000000000113,
+      "cycle_score": 4904,
+      "positive_cycle_score": 5631,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 80409
+   },
+   "53": {
+      "epsilon": 0.28940000000000116,
+      "cycle_score": 4494,
+      "positive_cycle_score": 5334,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 73068
+   },
+   "54": {
+      "epsilon": 0.2892000000000012,
+      "cycle_score": 3452,
+      "positive_cycle_score": 4927,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 67214
+   },
+   "55": {
+      "epsilon": 0.2890000000000012,
+      "cycle_score": 4462,
+      "positive_cycle_score": 5788,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 77053
+   },
+   "56": {
+      "epsilon": 0.2888000000000012,
+      "cycle_score": 3899,
+      "positive_cycle_score": 4501,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 64491
+   },
+   "57": {
+      "epsilon": 0.28860000000000124,
+      "cycle_score": 3360,
+      "positive_cycle_score": 4839,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 65614
+   },
+   "58": {
+      "epsilon": 0.28840000000000127,
+      "cycle_score": 3541,
+      "positive_cycle_score": 5122,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 68915
+   },
+   "59": {
+      "epsilon": 0.2882000000000013,
+      "cycle_score": 4332,
+      "positive_cycle_score": 5645,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 76452
+   },
+   "60": {
+      "epsilon": 0.2880000000000013,
+      "cycle_score": 3735,
+      "positive_cycle_score": 5166,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 70510
+   },
+   "61": {
+      "epsilon": 0.28780000000000133,
+      "cycle_score": 3988,
+      "positive_cycle_score": 5221,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 70694
+   },
+   "62": {
+      "epsilon": 0.28760000000000135,
+      "cycle_score": 4595,
+      "positive_cycle_score": 5956,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000,
+      "dataset_size": 79590
+   },
+   "63": {
+      "epsilon": 0.2874000000000014,
+      "cycle_score": 3964,
+      "positive_cycle_score": 5014,
+      "frames_per_game": 40,
+      "plays_per_train": 20000,
+      "record_0_scores_n": 2000
+   }
+}
