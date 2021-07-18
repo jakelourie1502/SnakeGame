@@ -1,5 +1,5 @@
 
-def fit(dataloaders, model, target_model,optimizer, criterion, metrics, patience, epochs, device, gamma):
+def fit(dataloader, model, target_model,optimizer, criterion, metrics, epochs, device, gamma,printy):
     import torch    
     def ModelOutputAndMetrics(batch, model, target_model, metrics, device, gamma, TTV='train'):
         '''
@@ -23,10 +23,10 @@ def fit(dataloaders, model, target_model,optimizer, criterion, metrics, patience
         for metric in metrics.values():
             metric(Qsa,target)
         return Qsa, target
-
-    def TrainEpoch(dataloaders, model, target_model, optimizer, criterion, metrics,device, gamma):
+ 
+    def TrainEpoch(dataloader, model, target_model, optimizer, criterion, metrics,device, gamma,printy):
         model.train()
-        for batch in dataloaders['train']:
+        for batch in dataloader:
             Qsa, target = ModelOutputAndMetrics(batch, model, target_model, metrics, device, gamma, 'train')
             loss = criterion(Qsa, target)
             loss.backward()
@@ -34,34 +34,35 @@ def fit(dataloaders, model, target_model,optimizer, criterion, metrics, patience
         for MetricName, metric in metrics.items():
             met = metric.compute()
             metric.reset() 
+            if printy:
+                print(MetricName,': ',met.item())
+    # def ValEpoch(dataloaders, model, target_model, optimizer, criterion, metrics,device, gamma):
+    #     model.eval()
+    #     with torch.no_grad():
+    #         for batch in dataloaders['val']:
+    #             Qsa, target = ModelOutputAndMetrics(batch, model, target_model, metrics, device, gamma, 'val')
+    #         for MetricName, metric in metrics.items():
+    #             met = metric.compute()
+    #             if MetricName == 'MSE':
+    #                 MSE = met
+    #             print(MetricName,': ', met.item())
+    #             metric.reset() 
+    #             return met
 
-    def ValEpoch(dataloaders, model, target_model, optimizer, criterion, metrics,device, gamma):
-        model.eval()
-        with torch.no_grad():
-            for batch in dataloaders['val']:
-                Qsa, target = ModelOutputAndMetrics(batch, model, target_model, metrics, device, gamma, 'val')
-            for MetricName, metric in metrics.items():
-                met = metric.compute()
-                if MetricName == 'MSE':
-                    MSE = met
-                print(MetricName,': ', met.item())
-                metric.reset() 
-                return met
-
-    MSE = float('inf')
-    patience_c =0    
+    # MSE = float('inf')
+    # patience_c =0    
     for epoch in range(epochs):
-      TrainEpoch(dataloaders, model, target_model, optimizer, criterion, metrics, device, gamma)
-      if (epoch+1) % 5 == 0:
-        print(f'Epoch {epoch} Val Metrics: ')
-        trial_MSE = ValEpoch(dataloaders, model, target_model, optimizer, criterion, metrics, device, gamma)
-        if trial_MSE < MSE:
-          MSE = trial_MSE
-          patience_c=0
-        else:
-          patience_c+=1
-          if patience_c > patience and epoch > 0 :
-            print('early stop')
-            break                    
+      TrainEpoch(dataloader, model, target_model, optimizer, criterion, metrics, device, gamma,printy)
+    #   if (epoch+1) % 5 == 0:
+    #     print(f'Epoch {epoch} Val Metrics: ')
+    #     trial_MSE = ValEpoch(dataloaders, model, target_model, optimizer, criterion, metrics, device, gamma)
+    #     if trial_MSE < MSE:
+    #       MSE = trial_MSE
+    #       patience_c=0
+    #     else:
+    #       patience_c+=1
+    #       if patience_c > patience and epoch > 0 :
+    #         print('early stop')
+    #         break                    
     
 

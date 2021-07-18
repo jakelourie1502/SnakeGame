@@ -24,7 +24,10 @@ def CreateAllXYInputs(data, ArrayMax):
                     if next==True and (y < 0 or y>=20 or x<0 or x>=20):
                         pass
                     else: 
-                        image[int(key),index,y,x] = 0.5
+                        if idx == 0:
+                            image[int(key),index,y,x] = 0.5
+                        else:
+                            image[int(key),index,y,x] = 0.5
             
             for key, value in foodimage.items():    #food
                 y = value[0]-1 #-1 because the stored array starts at 1, instead of 0

@@ -1,3 +1,4 @@
+
 import pickle
 import json
 import torch
@@ -10,7 +11,7 @@ import random
 import pprint
 import pickle
 from model import SnakeModel
-from Datasetsandloaders import Dataset, DatasetsAndDataloaders
+from Datasetsandloaders import Dataset, Dataloader, sample_dataset
 from DataPreparationHelper import CreateAllXYInputs, CreateOneFrameForChoosingMove, get_samples
 from trainsystem import fit
 
@@ -18,7 +19,7 @@ from trainsystem import fit
 ##
 ##
 ##  We need a 'Snake' object which the game will use.
-
+ 
 
 class Snake():
     def __init__(self, vert_bounds, hor_bounds, length=3):
@@ -237,130 +238,130 @@ class SnakeGame():
 if __name__ == "__main__":
     
     Qmodel = SnakeModel()
-    Qmodel = torch.load('/users/jacoblourie/RNN_games/Snake/model_checkpoints/MAINSnakemodel6.pt')
+    # Qmodel = torch.load('/home/ubuntu/SnakeGame/model_checkpoints/MAINSnakemodel1.pt')
     targetModel = SnakeModel(); targetModel.load_state_dict(Qmodel.state_dict())
     
-    cycles = 2000
-    # save_scores_n = 50
+    plays = 2000001
+    epoch_length = 200000
+    cycle_score = 0
+    positive_cycle_score = 0
 
-    # epsilon_start = 0.99
-    # epsilon_master_reduction = 0.2
-    # epsilon_start_floor = 0.25
-    # epsilon_floor = 0.01
-    epsilon_cycle_reduction = 0.995
- 
-    record_0_score_every_n = 1000
-    record_0_score_every_n_reduction = .999
-
-    plays_per_train_start = 10000    
-    frames_per_game_start = 40
-    frames_per_game_increase = 0.01
-
-    initial_cycle_section = 100
-
+    frames_per_game_evolution = [40,50,60,70,90,100,100,100,100,500]
     performance_metrics = {}
-    epsilon = 0.99
+    epsilon = 0.9
+    epoch_start_epsilon = epsilon
     counter = 0
+    datasetmax = 1000000
+    data = Dataset(datasetmax)
+
+    timey = time.time()
+    epoch = 0
+    frames_per_game = 40 #this is just the starting one.
     
+    #these are counters
+    frames_start, frames_end = 0, 0
+    for play in range(1,plays+1):
+        gui = False
+        #this is purely for tracking purposes of the different epochs
+        if play % (epoch_length) ==0:
+            #save these info
+            performance_metrics[epoch] = {}
+            performance_metrics[epoch]['starting_epsilon'] = float(epoch_start_epsilon)
+            performance_metrics[epoch]['finishing_epsilon'] = float(epsilon)
+            performance_metrics[epoch]['cycle_score'] = int(cycle_score)
+            performance_metrics[epoch]['positive_cycle_score'] = int(positive_cycle_score)
+            performance_metrics[epoch]['frames_per_game'] = int(frames_per_game)
+            performance_metrics[epoch]['length_of_dataset_at_end'] = int(data.max_frame)
+            with open('performance_metrics_update_every_frame.json', 'w+') as fp:
+                        json.dump(performance_metrics, fp,indent=3)
+            #save metrics
+            model_save_name = f'MAINSnakemodel{epoch}.pt'
+            path = f"/users/jacoblourie/RNN_games/Snake/model_checkpoints/{model_save_name}"
+            torch.save(Qmodel, path)
+            model_save_name = f'TARGETSnakemodel{epoch}.pt'
+            path = f"/users/jacoblourie/RNN_games/Snake/model_checkpoints/{model_save_name}"
+            torch.save(targetModel, path)
+            cycle_score = 0
+            positive_cycle_score =0
 
-    for cycle in range(cycles):
-        if cycle >initial_cycle_section:
-            frames_per_game = int(frames_per_game*frames_per_game_increase) + 1
-            record_0_score_every_n = max(1,int(record_0_score_every_n * record_0_score_every_n_reduction))
-        else:
-            frames_per_game = frames_per_game_start
-        plays_per_train = int(plays_per_train_start + (plays_per_train_start/((cycle+1)**0.2)))
-        epsilon_floor = 0.05
-        if cycle > 1500:
-            epsilon_floor = 0.01
-        cycle_score, positive_cycle_score = 0,0
+            gui = True
+            epoch+=1
+            epoch_start_epsilon = epsilon #log for logging each epoch  
+            frames_per_game = frames_per_game_evolution[epoch]
+            print(f'check: end of epoch and we have epsilon of {epsilon}, our cycle store is {cycle_score} after resetting. frames_per_game is {frames_per_game}')
+        
+        epsilon = max(0.1,epsilon - 0.000002)
+        
         Metrics = {} #create blank metrics every time.
-        for play in range(plays_per_train):
 
-            gui = False
-
-            if play == 0:
-                gui = True
+        game = SnakeGame(Qmodel=Qmodel, targetModel = targetModel, gui = gui, epsilon=epsilon, starting_length=3)
+        game.start()
+        if gui: game.render()
+        done = False
+        for i in range(frames_per_game):
             
-            game = SnakeGame(Qmodel=Qmodel, targetModel = targetModel, gui = gui, epsilon=epsilon, starting_length=3)
-            game.start()
-            if gui: game.render()
-            done = False
-            for i in range(frames_per_game):
-                
-                done = game.step()
-                
-                if done:
-                    break
-            cycle_score += np.sum([x for x in (game.metrics['Score'].values())])
-            positive_cycle_score += np.sum([x for x in (game.metrics['Score'].values()) if x>0])
+            done = game.step()
             
-            counter+=1
-            if (game.AtLeast1Score) or (counter % record_0_score_every_n==0) :
-                Metrics[play] = game.metrics
-
-            if gui: 
-                curses.endwin()
-
+            if done:
+                break
+        cycle_score += np.sum([x for x in (game.metrics['Score'].values())])
+        positive_cycle_score += np.sum([x for x in (game.metrics['Score'].values()) if x>0])
         
-        #save these info
-        performance_metrics[cycle] = {}
-        performance_metrics[cycle]['epsilon'] = float(epsilon)
-        performance_metrics[cycle]['cycle_score'] = int(cycle_score)
-        performance_metrics[cycle]['positive_cycle_score'] = int(positive_cycle_score)
-        performance_metrics[cycle]['frames_per_game'] = int(frames_per_game)
-        performance_metrics[cycle]['plays_per_train'] = int(plays_per_train)
-        performance_metrics[cycle]['record_0_scores_n'] = int(record_0_score_every_n)
-        
-        with open('performance_metrics.json', 'w+') as fp:
-                    json.dump(performance_metrics, fp,indent=3)
-        epsilon = max(epsilon_floor,epsilon/((cycle+1)**0.0025))
+        counter+=1
+        if (game.AtLeast1Score):
+            Metrics[play] = game.metrics
+
+        if gui: 
+            curses.endwin() 
+            
     #############################################################################
     #
 
         '''Create the manual inputs'''
+        sample_size = 12800
         batch_size = 32
-        sample_percentage = 0.4
-        patience = 1
-        epochs = 5
+        epochs = 1
         gamma = 0.98
         device = 'cpu' #obsolete reference because i deleted all references to device
         update_target_every_n = 3
-
-        '''Create the model, inputs etc'''
-        #create the inputs
-        ArrayMax = 250000 #put a max on train size
-        AllGamesImage, AllGamesNextImage, FirstPersonMoves, Reward, Done, frames1, frames2, frames3, frames4 = CreateAllXYInputs(Metrics, ArrayMax)
-        #take sample
-        sample_Image, sample_NextImage, sample_Moves, sample_Reward, sample_Done = get_samples(sample_percentage, AllGamesImage, AllGamesNextImage, FirstPersonMoves, Reward, Done)
-        #load into dataloader
-        dataset = Dataset(sample_Image, sample_NextImage, sample_Moves, sample_Reward, sample_Done)
-        dataset, dataloaders = DatasetsAndDataloaders(dataset, 0.9,0.05, batch_size)
-        #save metric and then delete samples in RAM
-        performance_metrics[cycle]['dataset_size'] = int(len(sample_Image))
-        del AllGamesImage, AllGamesNextImage, FirstPersonMoves, Reward, Done, sample_Image, sample_NextImage, sample_Moves, sample_Reward, sample_Done
-        #create optimizer, metrics, loss metric
-        optim = torch.optim.Adam(Qmodel.parameters())
-        metrics = {}
-        metrics['MSE'], metrics['MAE'] = torchmetrics.MeanSquaredError(), torchmetrics.MeanAbsoluteError()
-        criterion = torchmetrics.MeanSquaredError()
-        #train model for 2 epochs
         
+        
+        #weirdly now title "All games even though it's just one game. fix this later if it all works"
+        AllGamesImage, AllGamesNextImage, FirstPersonMoves, Reward, Done, frames1, frames2, frames3, frames4 = CreateAllXYInputs(Metrics, frames_per_game+1)
 
-        '''fit model'''
-        fit(dataloaders, Qmodel, targetModel, optim, criterion, metrics, patience, epochs, device, gamma)
-        if (cycle+1) % update_target_every_n  == 0:
-            targetModel.load_state_dict(Qmodel.state_dict())
+
+        frames_end = frames_start + len(AllGamesImage)
+        if frames_end > datasetmax:
+            frames_start = 0
+            frames_end = frames_start + len(AllGamesImage)
+
+        data.append(AllGamesImage, AllGamesNextImage, FirstPersonMoves, Reward, Done, frames_start, frames_end)
+        frames_start = frames_end
+        if data.max_frame > sample_size and play % 2000 ==0:
+            sample_image, sample_next_image, sample_moves, sample_reward, sample_done = data.get_sample(sample_size)
+            sample_data = sample_dataset(sample_image, sample_next_image, sample_moves, sample_reward, sample_done)
+            dataloader = Dataloader(sample_data, batch_size)
+            #create optimizer, metrics, loss metric
+            optim = torch.optim.Adam(Qmodel.parameters())
+            metrics = {}
+            metrics['MSE'], metrics['MAE'] = torchmetrics.MeanSquaredError(), torchmetrics.MeanAbsoluteError()
+            criterion = torchmetrics.MeanSquaredError()
+            #train model for 1 epoch
+            
+            '''fit model'''
+            printy=False
+            if play % 20000 == 0:
+                print(play)
+                print(frames_end, data.max_frame)
+
+                printy = True
+            fit(dataloader, Qmodel, targetModel, optim, criterion, metrics, epochs, device, gamma,printy)
+            if play/2000 % update_target_every_n  == 0:
+                targetModel.load_state_dict(Qmodel.state_dict())
         
             
         
-        '''Save file every cycle'''
-        model_save_name = f'MAINSnakemodel{cycle+1}.pt'
-        path = f"/users/jacoblourie/RNN_games/Snake/model_checkpoints/{model_save_name}"
-        torch.save(Qmodel, path)
-        model_save_name = f'TARGETSnakemodel{cycle+1}.pt'
-        path = f"/users/jacoblourie/RNN_games/Snake/model_checkpoints/{model_save_name}"
-        torch.save(targetModel, path)
+        
 #close the screen
 # if gui: 
 #     curses.endwin()
