@@ -1,0 +1,66 @@
+{
+   "0": {
+      "starting_epsilon": 0.5,
+      "finishing_epsilon": 0.40000049999712445,
+      "cycle_score": -23077,
+      "positive_cycle_score": 46927,
+      "frames_per_game": 40,
+      "length_of_dataset_at_end": 999971
+   },
+   "1": {
+      "starting_epsilon": 0.40000049999712445,
+      "finishing_epsilon": 0.3000004999942489,
+      "cycle_score": -40034,
+      "positive_cycle_score": 58345,
+      "frames_per_game": 50,
+      "length_of_dataset_at_end": 999987
+   },
+   "2": {
+      "starting_epsilon": 0.3000004999942489,
+      "finishing_epsilon": 0.20000049999414887,
+      "cycle_score": -22107,
+      "positive_cycle_score": 85327,
+      "frames_per_game": 60,
+      "length_of_dataset_at_end": 999993
+   },
+   "3": {
+      "starting_epsilon": 0.20000049999414887,
+      "finishing_epsilon": 0.10000049999613053,
+      "cycle_score": 18150,
+      "positive_cycle_score": 113004,
+      "frames_per_game": 70,
+      "length_of_dataset_at_end": 999993
+   },
+   "4": {
+      "starting_epsilon": 0.10000049999613053,
+      "finishing_epsilon": 0.1,
+      "cycle_score": 32124,
+      "positive_cycle_score": 130836,
+      "frames_per_game": 90,
+      "length_of_dataset_at_end": 999993
+   },
+   "5": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": 27515,
+      "positive_cycle_score": 134965,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   },
+   "6": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": 18263,
+      "positive_cycle_score": 134868,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   },
+   "7": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": 2844,
+      "positive_cycle_score": 119220,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   }
+}

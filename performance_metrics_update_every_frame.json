@@ -1,0 +1,82 @@
+{
+   "0": {
+      "starting_epsilon": 0.9,
+      "finishing_epsilon": 0.5000020000107022,
+      "cycle_score": -41229,
+      "positive_cycle_score": 15058,
+      "frames_per_game": 40,
+      "length_of_dataset_at_end": 537617
+   },
+   "1": {
+      "starting_epsilon": 0.5000020000107022,
+      "finishing_epsilon": 0.10000200001030218,
+      "cycle_score": -76614,
+      "positive_cycle_score": 19945,
+      "frames_per_game": 50,
+      "length_of_dataset_at_end": 999980
+   },
+   "2": {
+      "starting_epsilon": 0.10000200001030218,
+      "finishing_epsilon": 0.1,
+      "cycle_score": -89409,
+      "positive_cycle_score": 26995,
+      "frames_per_game": 60,
+      "length_of_dataset_at_end": 999993
+   },
+   "3": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": -77463,
+      "positive_cycle_score": 36946,
+      "frames_per_game": 70,
+      "length_of_dataset_at_end": 999997
+   },
+   "4": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": -59528,
+      "positive_cycle_score": 57121,
+      "frames_per_game": 90,
+      "length_of_dataset_at_end": 999997
+   },
+   "5": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": -25808,
+      "positive_cycle_score": 91077,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   },
+   "6": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": -7667,
+      "positive_cycle_score": 112124,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   },
+   "7": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": 2097,
+      "positive_cycle_score": 121644,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   },
+   "8": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": 14179,
+      "positive_cycle_score": 132498,
+      "frames_per_game": 100,
+      "length_of_dataset_at_end": 999997
+   },
+   "9": {
+      "starting_epsilon": 0.1,
+      "finishing_epsilon": 0.1,
+      "cycle_score": -42826,
+      "positive_cycle_score": 154038,
+      "frames_per_game": 500,
+      "length_of_dataset_at_end": 1000000
+   }
+}
